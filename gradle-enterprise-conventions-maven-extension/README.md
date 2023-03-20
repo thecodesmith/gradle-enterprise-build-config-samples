@@ -50,4 +50,4 @@ cd example-builds/maven_3.9.x
 ```
 
 ## Differences with the Common Custom User Data Gradle plugin
-This extension differs from the [Common Custom User Data Maven Extension](https://github.com/gradle/common-custom-user-data-maven-extension) in that this also applies the Gradle Enterprise extension (the Common Custom User Data Maven Extension does not apply the extension...it assumes the extension has already been applied when it is used).
+This extension differs from the [Common Custom User Data Maven Extension](https://github.com/gradle/common-custom-user-data-maven-extension) in that this also applies the Gradle Enterprise extension and some custom configuration. The Common Custom User Data Maven Extension does not apply the extension, but rather assumes the extension has already been applied when it is used). This extension is a sample meant to be copied rather than an extension that should be used directly.
