@@ -24,6 +24,7 @@
       <enabled>true</enabled>
     </local>
     <remote>
+      <enabled>true</enabled>
       <!-- todo: implement this more specifically for your CI environment -->
       <storeEnabled>#{isTrue(env['CI'])}</storeEnabled>
     </remote>
