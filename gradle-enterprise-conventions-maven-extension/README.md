@@ -31,7 +31,7 @@ This project demonstrates how to share a common Gradle Enterprise configuration 
 This project contains the following:
 
 * `extension` - Contains the example convention extension that applies and configures Gradle Enterprise on projects
-* `example-builds` - A set of example builds that apply the convention extension for various Maven versions
+* `example-build` - An example build that applies the convention extension
 
 ### Running the example builds
 
@@ -42,11 +42,11 @@ cd extension
 ./mvnw clean install
 ```
 
-Once the extension is published, then you can run the example builds under `example-builds` using the Maven wrapper:
+Once the extension is published, then you can run the example build under `example-build` using the Maven wrapper:
 
 ```bash
-cd example-builds/maven_3.9.x
-./mvnw clean install
+cd example-build
+./mvnw clean verify
 ```
 
 ## Differences with the Common Custom User Data Maven extension

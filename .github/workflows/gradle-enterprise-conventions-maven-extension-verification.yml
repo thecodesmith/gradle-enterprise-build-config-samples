@@ -19,6 +19,7 @@ jobs:
         with:
           java-version: '8'
           distribution: 'temurin'
+          cache: maven
       - name: Build Gradle Enterprise Conventions Maven Extension
         run: ./mvnw clean install -Dgradle.enterprise.url=https://ge.solutions-team.gradle.com
         working-directory: gradle-enterprise-conventions-maven-extension/extension
@@ -35,11 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        include:
-          - name: 'Maven 3.6.x'
-            directory: 'maven_3.6.x'
-          - name: 'Maven 3.9.x'
-            directory: 'maven_3.9.x'
+        maven-version: ['3.6.3', '3.8.8', '3.9.1']
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -48,13 +45,19 @@ jobs:
         with:
           java-version: '8'
           distribution: 'temurin'
+          cache: maven
       - name: Download Extension
         uses: actions/download-artifact@v3
         with:
           name: gradle-enterprise-conventions-maven-extension
           path: ~/.m2/repository/com/example/gradle-enterprise-conventions-maven-extension
-      - name: Verify Maven ${{ matrix.name }} Example Build
+      - name: Verify Example Build for Maven ${{ matrix.maven-version }}
+        run: ./mvnw wrapper:wrapper -Dmaven=${{ matrix.maven-version }} -Dgradle.enterprise.url=https://ge.solutions-team.gradle.com
+        working-directory: gradle-enterprise-conventions-maven-extension/example-build
+        env:
+          GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_SOLUTIONS_ACCESS_TOKEN }}
+      - name: Verify Example Build for Maven ${{ matrix.maven-version }}
         run: ./mvnw clean verify -Dgradle.enterprise.url=https://ge.solutions-team.gradle.com
-        working-directory: gradle-enterprise-conventions-maven-extension/example-builds/${{ matrix.directory }}
+        working-directory: gradle-enterprise-conventions-maven-extension/example-build
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_SOLUTIONS_ACCESS_TOKEN }}
