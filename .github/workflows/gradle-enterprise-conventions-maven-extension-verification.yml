@@ -31,7 +31,7 @@ jobs:
           name: gradle-enterprise-conventions-maven-extension
           path: ~/.m2/repository/com/example/gradle-enterprise-conventions-maven-extension
   verification:
-    name: Verification of ${{ matrix.name }} Example Build
+    name: Verify Example Build for Maven ${{ matrix.maven-version }}
     needs: [build]
     runs-on: ubuntu-latest
     strategy:
@@ -51,12 +51,12 @@ jobs:
         with:
           name: gradle-enterprise-conventions-maven-extension
           path: ~/.m2/repository/com/example/gradle-enterprise-conventions-maven-extension
-      - name: Verify Example Build for Maven ${{ matrix.maven-version }}
+      - name: Set Maven Version
         run: ./mvnw wrapper:wrapper -Dmaven=${{ matrix.maven-version }} -Dgradle.enterprise.url=https://ge.solutions-team.gradle.com
         working-directory: gradle-enterprise-conventions-maven-extension/example-build
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_SOLUTIONS_ACCESS_TOKEN }}
-      - name: Verify Example Build for Maven ${{ matrix.maven-version }}
+      - name: Verify Example Build
         run: ./mvnw clean verify -Dgradle.enterprise.url=https://ge.solutions-team.gradle.com
         working-directory: gradle-enterprise-conventions-maven-extension/example-build
         env:
