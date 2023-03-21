@@ -35,7 +35,7 @@ This project contains the following:
 
 ### Running the example builds
 
-Before running the example builds, publish the two example Gradle plugins to your local Maven repository:
+Before running the example builds, publish the sample extension to your local Maven repository:
 
 ```bash
 cd extension
