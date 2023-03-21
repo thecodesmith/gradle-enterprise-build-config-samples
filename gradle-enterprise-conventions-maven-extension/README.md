@@ -21,7 +21,7 @@ This project demonstrates how to share a common Gradle Enterprise configuration 
   <extension>
     <groupId>com.example</groupId>
     <artifactId>gradle-enterprise-conventions-maven-extension</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>1.0</version>
   </extension>
 </extensions>
 ```

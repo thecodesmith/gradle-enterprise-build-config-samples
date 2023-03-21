@@ -4,7 +4,7 @@
     <!-- todo: change groupId and artifactId to your own values -->
     <groupId>com.example</groupId>
     <artifactId>gradle-enterprise-conventions-maven-extension</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>Gradle Enterprise Conventions Maven Extension</name>
