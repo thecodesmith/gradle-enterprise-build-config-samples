@@ -4,6 +4,7 @@ This project demonstrates how to share a common Gradle Enterprise configuration 
 
 ## Usage
 
+* Use a [Repository Manager](https://maven.apache.org/repository-management.html) as a [Mirror](https://maven.apache.org/guides/mini/guide-mirror-settings.html) to Maven Central
 * Create your own copy of the `extension` project
 * Address all `todo` comments
     * Update the `groupId` and `artifactId` in the [POM](extension/pom.xml) file
@@ -11,7 +12,7 @@ This project demonstrates how to share a common Gradle Enterprise configuration 
     * Update `isCi` in [CiUtils.java](extension/src/main/java/com/example/CiUtils.java) and the CI checks in the [Gradle Enterprise configuration](extension/.mvn/gradle-enterprise.xml) to properly detect your CI environment
     * Update the server URL to your own Gradle Enterprise instance in the [Gradle Enterprise configuration](extension/.mvn/gradle-enterprise.xml) and [CustomGradleEnterpriseConfig.java](extension/src/main/java/com/example/CustomGradleEnterpriseConfig.java)
 * Add any common tags, links, or values to [CustomGradleEnterpriseConfig.java](extension/src/main/java/com/example/CustomGradleEnterpriseConfig.java)
-* Deploy the extension to your own artifact repository. Extensions will be loaded from repositories defined in the POM file.
+* Deploy the extension to your Repository Manager.
 * Utilize the extension in your projects by adding the following to your `.mvn/extensions.xml' file, adjusted for your own groupId and artifactId:
 
 ```xml
